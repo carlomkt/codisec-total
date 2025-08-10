@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - CODISEC</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul>
+      <li><strong>CODISEC</strong></li>
+    </ul>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="actividades.html">ITCA</a></li>
+      <li><a href="oficios.html">Oficios</a></li>
+      <li><a href="informes.html">Informes</a></li>
+      <li><a href="distritos.html">Distritos</a></li>
+      <li><a href="responsables.html">Responsables</a></li>
+      <li><a href="#" id="logoutBtn" role="button">Cerrar sesión</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h1>Panel de Control</h1>
+    <p>Bienvenido/a <span id="usernameDisplay"></span> 👋</p>
+
+    <!-- KPIs -->
+    <div class="grid kpi-cards">
+      <div class="card kpi">
+        <h2 id="kpi-itca">0%</h2>
+        <p>Cumplimiento ITCA</p>
+      </div>
+      <div class="card kpi">
+        <h2 id="kpi-eventos">0</h2>
+        <p>Eventos Programados</p>
+      </div>
+      <div class="card kpi">
+        <h2 id="kpi-pendientes">0</h2>
+        <p>Actividades Pendientes</p>
+      </div>
+    </div>
+
+    <!-- Gráficos -->
+    <div class="grid">
+      <canvas id="chartCumplimiento"></canvas>
+      <canvas id="chartEventos"></canvas>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

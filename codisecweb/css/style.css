@@ -1,0 +1,209 @@
+/* ================================
+   CODISEC - Estilos Unificados
+   ================================ */
+:root {
+  --codisec-blue: #003366;
+  --codisec-white: #ffffff;
+  --codisec-red: #cc0000;
+  --codisec-gray-light: #f4f6f8;
+  --codisec-gray-dark: #333333;
+  --codisec-accent: #0077cc;
+  --codisec-shadow: rgba(0, 0, 0, 0.1);
+  --codisec-radius: 6px;
+  --codisec-transition: all 0.2s ease-in-out;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--codisec-gray-light);
+  margin: 0;
+  padding: 0;
+  color: var(--codisec-gray-dark);
+}
+
+/* Navbar */
+nav {
+  background-color: var(--codisec-blue);
+  color: var(--codisec-white);
+  padding: 0.5rem 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+nav a {
+  color: var(--codisec-white);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedores principales */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* Botones */
+button, .btn {
+  background-color: var(--codisec-accent);
+  color: var(--codisec-white);
+  border: none;
+  border-radius: var(--codisec-radius);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: var(--codisec-transition);
+}
+
+button:hover, .btn:hover {
+  background-color: var(--codisec-blue);
+}
+
+/* Botón de peligro */
+.btn-danger {
+  background-color: var(--codisec-red);
+}
+
+.btn-danger:hover {
+  background-color: #a30000;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--codisec-white);
+  box-shadow: 0 2px 6px var(--codisec-shadow);
+  border-radius: var(--codisec-radius);
+  overflow: hidden;
+}
+
+thead {
+  background-color: var(--codisec-blue);
+  color: var(--codisec-white);
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: var(--codisec-gray-light);
+}
+
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+input, select, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--codisec-radius);
+  font-size: 0.95rem;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--codisec-accent);
+  box-shadow: 0 0 0 2px rgba(0, 119, 204, 0.3);
+}
+
+/* Modales */
+dialog {
+  border: none;
+  border-radius: var(--codisec-radius);
+  padding: 1.5rem;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 10px var(--codisec-shadow);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* FullCalendar ajustes */
+.fc-toolbar-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--codisec-blue);
+}
+
+.fc-button-primary {
+  background-color: var(--codisec-blue) !important;
+  border: none !important;
+}
+
+.fc-event {
+  border-radius: var(--codisec-radius);
+  padding: 2px 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px var(--codisec-shadow);
+    border-radius: var(--codisec-radius);
+    background: var(--codisec-white);
+    padding: 0.5rem;
+  }
+
+  td {
+    border: none;
+    padding: 0.5rem;
+    text-align: right;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+  }
+}

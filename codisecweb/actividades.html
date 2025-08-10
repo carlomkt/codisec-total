@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CODISEC - ITCA</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="sidebar">
+    <h2>CODISEC</h2>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="actividades.html" class="active">ITCA</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="oficios.html">Oficios</a></li>
+      <li><a href="informes.html">Informes</a></li>
+      <li><a href="distritos.html">Distritos</a></li>
+      <li><a href="responsables.html">Responsables</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="index.html" onclick="localStorage.clear()">Salir</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Gestión ITCA</h1>
+    <p>Administra las actividades programadas y ejecutadas para el cumplimiento del ITCA.</p>
+
+    <button id="addRow">Agregar Actividad</button>
+    <button id="generatePDF">Generar Informe PDF</button>
+
+    <table id="itcaTable">
+      <thead>
+        <tr>
+          <th>Línea Estratégica</th>
+          <th>Actividad</th>
+          <th>Responsable</th>
+          <th>Fecha</th>
+          <th>Programada</th>
+          <th>Ejecutada</th>
+          <th>% Cumplimiento</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/actividades.js"></script>
+</body>
+</html>
