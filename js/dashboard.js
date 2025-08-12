@@ -1,33 +1,43 @@
-if (!localStorage.getItem('codisecUser')) {
-  window.location.href = 'index.html';
+// Protección de acceso
+if (!localStorage.getItem("loggedIn")) {
+  window.location.href = "index.html";
 }
 
-function logout() {
-  localStorage.removeItem('codisecUser');
-  window.location.href = 'index.html';
-}
-
-const ctx1 = document.getElementById('chart1');
-new Chart(ctx1, {
-  type: 'bar',
-  data: {
-    labels: ['Ene', 'Feb', 'Mar', 'Abr'],
-    datasets: [{
-      label: 'Cumplimiento ITCA (%)',
-      data: [70, 80, 75, 85],
-      backgroundColor: '#003366'
-    }]
-  }
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "index.html";
 });
 
-const ctx2 = document.getElementById('chart2');
-new Chart(ctx2, {
-  type: 'pie',
+// Datos ficticios
+document.getElementById("kpi-itca").textContent = "85%";
+document.getElementById("kpi-eventos").textContent = "12";
+document.getElementById("kpi-alertas").textContent = "3";
+
+// Chart.js ITCA
+const ctx1 = document.getElementById("chartITCA").getContext("2d");
+new Chart(ctx1, {
+  type: "bar",
   data: {
-    labels: ['Programados', 'Ejecutados'],
+    labels: ["Trimestre 1", "Trimestre 2", "Trimestre 3", "Trimestre 4"],
     datasets: [{
-      data: [12, 9],
-      backgroundColor: ['#003366', '#cc0000']
+      label: "Cumplimiento ITCA (%)",
+      data: [82, 85, 78, 90],
+      backgroundColor: "#003366"
     }]
-  }
+  },
+  options: { responsive: true }
+});
+
+// Chart.js Eventos
+const ctx2 = document.getElementById("chartEventos").getContext("2d");
+new Chart(ctx2, {
+  type: "pie",
+  data: {
+    labels: ["GPAI", "Escuela Segura", "Proyecto de Vida"],
+    datasets: [{
+      data: [5, 4, 3],
+      backgroundColor: ["#003366", "#cc0000", "#006699"]
+    }]
+  },
+  options: { responsive: true }
 });
