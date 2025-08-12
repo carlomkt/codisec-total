@@ -1,194 +1,74 @@
 :root {
-    --primary-color: #1a2a6c;
-    --secondary-color: #b21f1f;
-    --accent-color: #fdbb2d;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-    --success-color: #28a745;
-    --info-color: #17a2b8;
-    --warning-color: #ffc107;
-    --danger-color: #dc3545;
+  --codisec-blue: #003366;
+  --codisec-white: #ffffff;
+  --codisec-red: #cc0000;
 }
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    color: var(--dark-color);
+  font-family: Arial, sans-serif;
+  background-color: var(--codisec-white);
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
-
-.navbar {
-    background-color: var(--primary-color) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+header {
+  background-color: var(--codisec-blue);
+  color: var(--codisec-white);
+  padding: 1rem;
 }
-
-.navbar-brand {
-    font-weight: 700;
+nav a {
+  color: var(--codisec-white);
+  margin-right: 1rem;
+  text-decoration: none;
 }
-
-.navbar-nav .nav-link {
-    font-weight: 500;
-    margin: 0 5px;
-    border-radius: 5px;
-    transition: all 0.3s;
+button {
+  background-color: var(--codisec-blue);
+  color: var(--codisec-white);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
-
-.navbar-nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+button:hover {
+  background-color: var(--codisec-red);
 }
-
-.navbar-nav .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.2);
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
 }
-
-.dashboard-title {
-    color: var(--primary-color);
-    font-weight: 700;
-    margin-bottom: 5px;
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
 }
-
-.dashboard-card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+  th {
+    background-color: var(--codisec-blue);
+    color: var(--codisec-white);
+  }
 }
-
-.dashboard-card:hover {
-    transform: translateY(-5px);
+/* Modal estándar */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
 }
-
-.dashboard-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    color: white;
-}
-
-.bg-primary {
-    background-color: var(--primary-color) !important;
-}
-
-.bg-success {
-    background-color: var(--success-color) !important;
-}
-
-.bg-warning {
-    background-color: var(--warning-color) !important;
-}
-
-.bg-info {
-    background-color: var(--info-color) !important;
-}
-
-.card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.card-header {
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 10px 10px 0 0 !important;
-    font-weight: 600;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    border-radius: 5px;
-}
-
-.btn-primary:hover {
-    background-color: #0f1a47;
-    border-color: #0f1a47;
-}
-
-.btn-outline-primary {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.table th {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-}
-
-.badge {
-    font-size: 0.75rem;
-}
-
-.form-control, .form-select {
-    border-radius: 5px;
-}
-
-.form-control:focus, .form-select:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(26, 42, 108, 0.25);
-}
-
 .modal-content {
-    border-radius: 10px;
+  background: var(--codisec-white);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 500px;
 }
-
-.modal-header {
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 10px 10px 0 0;
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
-
-.modal-title {
-    font-weight: 600;
-}
-
-.btn-close {
-    filter: invert(1);
-}
-
-.alert {
-    border: none;
-    border-radius: 5px;
-}
-
-.footer {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 20px 0;
-    margin-top: 50px;
-}
-
-/* Desactivar TODAS las animaciones y transiciones */
-* {
-  animation: none !important;
-  transition: none !important;
-  transform: none !important;
-}
-
-/* Desactivar efectos específicos de Bootstrap */
-.navbar,
-.card,
-.btn,
-.badge {
-  transition: none !important;
-  animation: none !important;
-}
-
-/* Forzar estabilidad en elementos del dashboard */
-.dashboard-card,
-.dashboard-icon {
-  animation: none !important;
-  transition: none !important;
-}
-
-
