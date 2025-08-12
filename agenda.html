@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda de Eventos - CODISEC</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <h1>Agenda de Eventos</h1>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <button onclick="logout()">Cerrar Sesión</button>
+    </nav>
+  </header>
+
+  <main>
+    <div id="calendar"></div>
+  </main>
+
+  <!-- Modal -->
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle">Registrar Evento</h2>
+      <form id="eventForm">
+        <label>Fecha:</label>
+        <input type="date" id="fecha" required>
+
+        <label>Hora:</label>
+        <input type="time" id="hora" required>
+
+        <label>Duración (min):</label>
+        <input type="number" id="duracion" required>
+
+        <label>Lugar:</label>
+        <input type="text" id="lugar" required>
+
+        <label>Institución:</label>
+        <input type="text" id="institucion" required>
+
+        <label>Aliado:</label>
+        <input type="text" id="aliado">
+
+        <label>Tema:</label>
+        <input type="text" id="tema">
+
+        <label>Público:</label>
+        <input type="text" id="publico">
+
+        <label>Responsable:</label>
+        <input type="text" id="responsable">
+
+        <label>Observaciones:</label>
+        <textarea id="observaciones"></textarea>
+
+        <label>Estado:</label>
+        <select id="estado">
+          <option value="Confirmado">Confirmado</option>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Cancelado">Cancelado</option>
+        </select>
+
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+  <script src="js/agenda.js"></script>
+</body>
+</html>
