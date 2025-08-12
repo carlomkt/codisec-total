@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Limpio</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .btn { padding: 10px 15px; margin: 5px; background: #1a2a6c; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Test de Navegación Limpio</h1>
+    
+    <p>Enlaces HTML estándar:</p>
+    <a href="./distritos.html">Ir a Distritos</a> |
+    <a href="./responsables.html">Ir a Responsables</a> |
+    <a href="./actividades.html">Ir a Actividades</a> |
+    <a href="./oficios.html">Ir a Oficios</a> |
+    <a href="./informes.html">Ir a Informes</a>
+    
+    <hr>
+    
+    <p>Botones con JavaScript:</p>
+    <button class="btn" onclick="window.location.href='./distritos.html'">Ir a Distritos</button>
+    <button class="btn" onclick="window.location.href='./responsables.html'">Ir a Responsables</button>
+    <button class="btn" onclick="window.location.href='./actividades.html'">Ir a Actividades</button>
+    <button class="btn" onclick="window.location.href='./oficios.html'">Ir a Oficios</button>
+    <button class="btn" onclick="window.location.href='./informes.html'">Ir a Informes</button>
+    
+    <div id="resultado" style="margin-top: 20px; padding: 10px; background: #f0f0f0;"></div>
+    
+    <script>
+        // Verificar si hay algún script interceptando la navegación
+        console.log("URL actual:", window.location.href);
+        console.log("Ruta base:", window.location.pathname);
+        
+        // Sobrescribir window.location.href para ver si algo lo intercepta
+        const originalLocationHref = window.location.href;
+        Object.defineProperty(window.location, 'href', {
+            get: function() {
+                return originalLocationHref;
+            },
+            set: function(url) {
+                console.log("Intentando cambiar la URL a:", url);
+                document.getElementById('resultado').innerHTML = "Intentando navegar a: " + url;
+                return originalLocationHref = url;
+            }
+        });
+        
+        // Verificar si hay un event listener en el documento
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                console.log("Clic en enlace detectado:", e.target.href);
+                e.preventDefault();
+                console.log("Navegación prevenida por JavaScript");
+            }
+        }, true);
+    </script>
+</body>
+</html>
