@@ -1,65 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sistema CODISEC</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CODISEC - Login</title>
+  <link rel="stylesheet" href="css/login.css" />
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-card">
-            <div class="text-center mb-4">
-                <i class="bi bi-shield-check login-logo"></i>
-                <h2>Sistema CODISEC</h2>
-                <p class="text-muted">Comité Distrital de Seguridad Ciudadana</p>
-            </div>
-            
-            <form id="loginForm">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Usuario</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="bi bi-person"></i></span>
-                        <input type="text" class="form-control" id="username" required>
-                    </div>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                        <input type="password" class="form-control" id="password" required>
-                    </div>
-                </div>
-                
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Recordarme</label>
-                </div>
-                
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
-                    </button>
-                </div>
-                
-                <div class="text-center mt-3">
-                    <small class="text-muted">¿Olvidaste tu contraseña?</small>
-                </div>
-            </form>
-            
-            <div class="text-center mt-4">
-                <small class="text-muted">© 2023 CODISEC. Todos los derechos reservados.</small>
-            </div>
-        </div>
-    </div>
+  <main class="login-container">
+    <div class="login-box">
+      <img src="images/logo.png" alt="Logo CODISEC" class="logo" />
+      <h1>Plataforma CODISEC</h1>
+      <form id="loginForm">
+        <label for="username">Usuario</label>
+        <input type="text" id="username" name="username" required placeholder="Ingrese usuario" />
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/auth.js"></script>
-    <script>
-        localStorage.clear();
-    </script>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required placeholder="Ingrese contraseña" />
+
+        <button type="submit">Iniciar Sesión</button>
+        <p class="note">Usuario: admin | Contraseña: 1234</p>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      if (user === 'admin' && pass === '1234') {
+        localStorage.setItem('codisecUser', user);
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Credenciales incorrectas');
+      }
+    });
+  </script>
 </body>
 </html>
