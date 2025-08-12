@@ -1,42 +1,27 @@
-// Protección de acceso
-if (!localStorage.getItem("loggedIn")) {
-  window.location.href = "index.html";
-}
-
-document.getElementById("logoutBtn").addEventListener("click", () => {
-  localStorage.removeItem("loggedIn");
-  window.location.href = "index.html";
-});
-
-// Datos ficticios
-document.getElementById("kpi-itca").textContent = "85%";
-document.getElementById("kpi-eventos").textContent = "12";
-document.getElementById("kpi-alertas").textContent = "3";
-
-// Chart.js ITCA
-const ctx1 = document.getElementById("chartITCA").getContext("2d");
-new Chart(ctx1, {
-  type: "bar",
+// Gráfico de cumplimiento ITCA
+const ctxCumplimiento = document.getElementById('chartCumplimiento');
+new Chart(ctxCumplimiento, {
+  type: 'doughnut',
   data: {
-    labels: ["Trimestre 1", "Trimestre 2", "Trimestre 3", "Trimestre 4"],
+    labels: ['Cumplido', 'Pendiente'],
     datasets: [{
-      label: "Cumplimiento ITCA (%)",
-      data: [82, 85, 78, 90],
-      backgroundColor: "#003366"
+      data: [85, 15],
+      backgroundColor: ['#28a745', '#dc3545']
     }]
   },
   options: { responsive: true }
 });
 
-// Chart.js Eventos
-const ctx2 = document.getElementById("chartEventos").getContext("2d");
-new Chart(ctx2, {
-  type: "pie",
+// Gráfico de eventos
+const ctxEventos = document.getElementById('chartEventos');
+new Chart(ctxEventos, {
+  type: 'bar',
   data: {
-    labels: ["GPAI", "Escuela Segura", "Proyecto de Vida"],
+    labels: ['Programados', 'Ejecutados'],
     datasets: [{
-      data: [5, 4, 3],
-      backgroundColor: ["#003366", "#cc0000", "#006699"]
+      label: 'Eventos',
+      data: [12, 9],
+      backgroundColor: ['#007bff', '#28a745']
     }]
   },
   options: { responsive: true }
