@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - CODISEC</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Dashboard CODISEC</h1>
+    <button onclick="logout()">Cerrar Sesión</button>
+  </header>
+
+  <main>
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <h3>Cumplimiento ITCA</h3>
+        <p>75%</p>
+      </div>
+      <div class="kpi-card">
+        <h3>Eventos Programados</h3>
+        <p>12</p>
+      </div>
+      <div class="kpi-card">
+        <h3>Actividades Pendientes</h3>
+        <p>5</p>
+      </div>
+    </section>
+
+    <section class="charts">
+      <canvas id="chart1"></canvas>
+      <canvas id="chart2"></canvas>
+    </section>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
