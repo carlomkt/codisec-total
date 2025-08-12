@@ -2,38 +2,53 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard - CODISEC</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Dashboard CODISEC</h1>
-    <button onclick="logout()">Cerrar Sesión</button>
-  </header>
+  <nav class="container-fluid">
+    <ul><li><strong>CODISEC</strong></li></ul>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <li><a href="actividades.html">ITCA</a></li>
+      <li><a href="oficios.html">Oficios</a></li>
+      <li><a href="informes.html">Informes</a></li>
+      <li><a href="distritos.html">Distritos</a></li>
+      <li><a href="responsables.html">Responsables</a></li>
+      <li><a href="#" id="logoutBtn" role="button" class="contrast">Salir</a></li>
+    </ul>
+  </nav>
 
-  <main>
-    <section class="kpi-grid">
-      <div class="kpi-card">
-        <h3>Cumplimiento ITCA</h3>
-        <p>75%</p>
+  <main class="container">
+    <h1>Panel de Control</h1>
+    <div class="grid">
+      <div class="card kpi">
+        <h3>ITCA Cumplimiento</h3>
+        <p id="kpi-itca">85%</p>
       </div>
-      <div class="kpi-card">
-        <h3>Eventos Programados</h3>
-        <p>12</p>
+      <div class="card kpi">
+        <h3>Eventos del Mes</h3>
+        <p id="kpi-eventos">12</p>
       </div>
-      <div class="kpi-card">
-        <h3>Actividades Pendientes</h3>
-        <p>5</p>
+      <div class="card kpi">
+        <h3>Alertas Pendientes</h3>
+        <p id="kpi-alertas">3</p>
       </div>
-    </section>
+    </div>
 
-    <section class="charts">
-      <canvas id="chart1"></canvas>
-      <canvas id="chart2"></canvas>
+    <section>
+      <h2>Gráficos</h2>
+      <canvas id="chartITCA" height="100"></canvas>
+      <canvas id="chartEventos" height="100"></canvas>
     </section>
   </main>
+
+  <footer class="container">
+    <small><a href="#">CODISEC</a> • <a href="#">2025</a></small>
+  </footer>
 
   <script src="js/dashboard.js"></script>
 </body>
